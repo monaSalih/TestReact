@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Card form 'react-bootstrap/Card'
-import Button form 'react-bootstrap/Button'
+// import Card form 'react-bootstrap/Card'
+// import Button form 'react-bootstrap/Button'
 
 
 class HonerdBest extends React.Component{
