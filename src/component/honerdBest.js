@@ -1,7 +1,6 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-// import Card form 'react-bootstrap/Card'
-// import Button form 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
+// import Button from 'react-bootstrap/Button'
 
 
 class HonerdBest extends React.Component{
@@ -16,7 +15,7 @@ class HonerdBest extends React.Component{
   clickAdd =()=>{
     console.log(this);
     this.setState({
-      clickNumber:this.state.clickNumber+1
+    clickNumber:this.state.clickNumber+1
     })
   }
   
@@ -25,16 +24,20 @@ class HonerdBest extends React.Component{
     
           <> 
           
-          
-          <Card.img onClick={this.clickNumber} src={this.props.imageUrl}/>
+          <Card style={{ width: '18rem' }}>
+         
           <Card.Body>
-          
-         <Card.Title>{this.props.title}</Card.Title> 
+           <Card.Img onClick={this.clickAdd} src={this.props.imageUrl}/>
+         <Card.Title>{this.props.title} {this.state.clickNumber}</Card.Title> 
          <Card.Text>
-           alt = {this.props.alt}  keyword={this.props.keyword} 
-          <p>{this.props.description}  this image keyword:{this.props.keyword} 
-          and this animal have{this.props.horns} Horns</p></Card.Text>
-         </Card.Body>  </>
+          
+          <p>{this.props.description}  
+         🐱‍🐉🐱‍🚀 </p></Card.Text>
+         </Card.Body> 
+         </Card>
+
+
+          </>
         )
     
       }
