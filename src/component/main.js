@@ -28,13 +28,15 @@ class main extends React.Component{
     render(){
         return(
             imageArr.map(item=>{
-                return{
-                    <honerdBest 
+                return(
+                    <HonerdBest 
+                    // key={item}
                     title={item.title}
                     imageUrl={item.image_url}
                     description={item.description}/>
-                }
+                    )
             })
+
 
     //         <div className="divCon"> <p>
     //         In This First React programming will display 3 images for user
