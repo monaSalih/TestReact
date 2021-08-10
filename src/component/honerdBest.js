@@ -1,5 +1,8 @@
 import React from 'react';
-import { Card, Modal, Button } from 'react-bootstrap/Card'
+import Card from 'react-bootstrap/Card'
+import Modal from 'react-bootstrap/Modal'
+import  Button from 'react-bootstrap/Button'
+
 // import Button from 'react-bootstrap/Button'
 
 
@@ -36,11 +39,11 @@ class HonerdBest extends React.Component {
           </Card.Body>
         </Card>
 
-        <Button variant="primary" onClick={handleShow}>
+        <Button variant="primary" onClick={this.props.handleShow}>
           Launch demo modal
         </Button>
 
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={this.props.handleShow} onHide={this.props.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>{this.props.title}</Modal.Title>
           </Modal.Header>
@@ -57,10 +60,10 @@ class HonerdBest extends React.Component {
               </Card.Body>
             </Card></Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="secondary" onClick={this.props.handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="primary" onClick={this.props.handleClose}>
               Save Changes
             </Button>
           </Modal.Footer>
