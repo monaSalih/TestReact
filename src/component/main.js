@@ -2,44 +2,23 @@ import React from 'react';
 import './main.css'
 import HonerdBest from './honerdBest'
 import ImgData from "./imgData.json";
-
+// import SelectedBeast from './SelectedBeast.js'
 
 class Main extends React.Component{
-    constructor (props){
-    super(props);
- this.state={
-     show:false
- }
-}
-    handleClose = () =>{
-        this.setState={
-            
-             Show:false}
-       }
-     handleShow  = () =>{
-        this.setState={
-            
-            Show:true}
-       }
+   
     render(){
         return(
-        //   <ImgData/>
-        <>
-          {  ImgData.map((item,idx)=>{
-                return(
-                    <HonerdBest 
-                    key={idx}
-                    title={item.title}
-                    imageUrl={item.image_url}
-                    description={item.description}
-                    handleShow={this.state.Show}
-                    handleClose={this.handleClose}
-                    />
-                    )
-            })}
-            {/* show new form */}
 
-</>
+      this.props.ImgArr.map((item,idx)=>{
+          return <HonerdBest 
+          key={idx}
+            title={item.title}
+            imageUrl={item.image_url}
+            description={item.description}
+            // handleShow={this.state.Show}
+            //  handleClose={this.handleClose} 
+            />
+      })
 
         
         )
@@ -47,3 +26,30 @@ class Main extends React.Component{
 }
 
 export default Main
+
+
+  //   <ImgData/>
+//         <>
+//           {  ImgData.map((item,idx)=>{
+//                 return(
+//                     <HonerdBest 
+//                     key={idx}
+//                     title={item.title}
+//                     imageUrl={item.image_url}
+//                     description={item.description}
+//                     handleShow={this.state.Show}
+//                     handleClose={this.handleClose} />
+//                     // <>
+//                     <SelectedBeast
+//                     key={idx}
+//                     title={item.title}
+//                     imageUrl={item.image_url}
+//                     description={item.description}
+//                     handleShow={this.state.Show}
+//                     handleClose={this.handleClose}/>
+//                     // </>
+//                     )
+//             })}
+//             {/* show new form */}
+
+// </>
