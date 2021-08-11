@@ -7,31 +7,55 @@ import ImgData from "./component/imgData.json";
 import SelectedBeast from './component/SelectedBeast'
 
 class firstApp extends React.Component {
-  constructor (props){
+  constructor(props) {
     super(props);
- this.state={
-     show:false,
-     picture:{}
- }
-}
-    handleClose = (data) =>{
-        this.setState={
-            
-             Show:false,
-           }
-       }
-     handleShow  = (data) =>{
-        this.setState={
-            
-            Show:true,
-            picture:data}
-       }
+    this.state = {
+      show: false,
+      picture: {}
+    }
+  }
+  ////test find data
+  showPicture = (title) => {
+    let pickedImage = ImgData.find(playImage => {
+      if (playImage.title === title) {
+        return playImage;
+      }
+    })
+    this.setState({
+      picture: pickedImage,
+      show: true,
+    })
+    console.log(pickedImage);
+  // console.log(this.state.picture,"picture");
+  // console.log(this.state.show,"show");
+  }
+  ///////
+
+
+  ///////
+  handleClose = () => {
+    this.setState  ({
+      show: false,
+    })
+  }
+  handleShow = (data) => {
+    this.setState = {
+
+      show: true,
+      picture: data
+    }
+  }
   render() {
     return (
       <div>
         < Header />
-        <div className="mainCon"> <Main ImgArr={ImgData} /></div>
-       <SelectedBeast picture={this.state.picture} show={this.state.show} handleClose={this.handleClose} />
+        <div className="mainCon">
+          
+           <Main showPicture={this.showPicture} imgArr={ImgData} />
+           
+           </div>
+           
+        <SelectedBeast picture={this.state.picture} show={this.state.show} handleClose={this.handleClose} />
         <Footer />
 
       </div>

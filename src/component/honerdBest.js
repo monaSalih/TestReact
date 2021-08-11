@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card'
 import Modal from 'react-bootstrap/Modal'
 import  Button from 'react-bootstrap/Button'
 
+
 // import Button from 'react-bootstrap/Button'
 
 
@@ -14,9 +15,15 @@ class HonerdBest extends React.Component {
       clickNumber: 0
     }
   }
+  showPic =()=>{
+    this.props.showPicture(this.props.title)
+    
+  }
+
+
 
   clickAdd = () => {
-    console.log(this);
+    // console.log(this);
     this.setState({
       clickNumber: this.state.clickNumber + 1
     })
@@ -27,11 +34,11 @@ class HonerdBest extends React.Component {
 
       <>
 
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '18rem' } } onClick={this.showPic}>
 
           <Card.Body>
             <Card.Img onClick={this.clickAdd} src={this.props.imageUrl} />
-            <Card.Title>{this.props.title} {this.state.clickNumber}</Card.Title>
+            <Card.Title>{this.props.title}  {this.state.clickNumber}</Card.Title>
             <Card.Text>
 
               <p>{this.props.description}
