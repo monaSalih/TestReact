@@ -45,6 +45,8 @@ class firstApp extends React.Component {
       picture: data
     }
   }
+  ////test test
+  
   render() {
     return (
       <div>
@@ -54,7 +56,7 @@ class firstApp extends React.Component {
            <Main showPicture={this.showPicture} imgArr={ImgData} />
            
            </div>
-           
+
         <SelectedBeast picture={this.state.picture} show={this.state.show} handleClose={this.handleClose} />
         <Footer />
 
