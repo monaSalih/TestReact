@@ -16,16 +16,19 @@ class Main extends React.Component {
         };
     }
 
-    numberOfHonerd = (event) => {
-        event.preventDefault();
-        let index=Number(event.target.value);
+ numberOfHonerd = async (test) => {
 
-// console.log(event.target.value);
+        // event.preventDefault();
+        let index=Number(test);
+
+console.log(index);
         let searchOnHornes=[];
 
         searchOnHornes=ImgData.filter(item=>{
             console.log(item.horns,"item");
+            // if (!(isNaN(index)))
             if (item.horns === index){
+                //console.log(index,"isnan result");
                 return true;
             }else{
                 searchOnHornes=ImgData;
@@ -33,7 +36,7 @@ class Main extends React.Component {
             
         })
         console.log(searchOnHornes,"searchOnHornes");
-        this.setState({
+       await this.setState({
             showImage: searchOnHornes,
         })
 console.log(this.state.showImage,"checkNum");
@@ -48,7 +51,7 @@ console.log(this.state.showImage,"checkNum");
             <SelectList numberOfHonerd={this.numberOfHonerd}/>
 
 
-                {ImgData.map((item, idx) => {
+                {this.state.showImage.map((item, idx) => {
                     return (
                         <HonerdBest
                             key={idx}
