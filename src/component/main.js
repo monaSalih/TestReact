@@ -12,29 +12,31 @@ class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            checkNum: ImgData,
+            showImage: ImgData,
         };
     }
 
     numberOfHonerd = (event) => {
+        event.preventDefault();
         let index=Number(event.target.value);
 
-console.log(event.target.value);
+// console.log(event.target.value);
         let searchOnHornes=[];
 
         searchOnHornes=ImgData.filter(item=>{
             console.log(item.horns,"item");
             if (item.horns === index){
-                
-
-                return 1;
+                return true;
+            }else{
+                searchOnHornes=ImgData;
             }
+            
         })
         console.log(searchOnHornes,"searchOnHornes");
         this.setState({
-            checkNum:searchOnHornes,
+            showImage: searchOnHornes,
         })
-console.log(this.state.checkNum,"checkNum");
+console.log(this.state.showImage,"checkNum");
        
     }
 
