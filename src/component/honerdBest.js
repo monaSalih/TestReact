@@ -1,5 +1,9 @@
 import React from 'react';
-import { Card, Modal, Button } from 'react-bootstrap/Card'
+import Card from 'react-bootstrap/Card'
+import Modal from 'react-bootstrap/Modal'
+import  Button from 'react-bootstrap/Button'
+
+
 // import Button from 'react-bootstrap/Button'
 
 
@@ -11,9 +15,15 @@ class HonerdBest extends React.Component {
       clickNumber: 0
     }
   }
+  showPic =()=>{
+    this.props.showPicture(this.props.title)
+    
+  }
+
+
 
   clickAdd = () => {
-    console.log(this);
+    // console.log(this);
     this.setState({
       clickNumber: this.state.clickNumber + 1
     })
@@ -24,11 +34,11 @@ class HonerdBest extends React.Component {
 
       <>
 
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '18rem' } } onClick={this.showPic}>
 
           <Card.Body>
             <Card.Img onClick={this.clickAdd} src={this.props.imageUrl} />
-            <Card.Title>{this.props.title} {this.state.clickNumber}</Card.Title>
+            <Card.Title>{this.props.title}  {this.state.clickNumber}</Card.Title>
             <Card.Text>
 
               <p>{this.props.description}
@@ -36,35 +46,12 @@ class HonerdBest extends React.Component {
           </Card.Body>
         </Card>
 
-        <Button variant="primary" onClick={handleShow}>
+        <Button variant="primary" onClick={this.props.handleShow}>
           Launch demo modal
         </Button>
 
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>{this.props.title}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
 
-            <Card style={{ width: '18rem' }}>
-              <Card.Body>
-                <Card.Img onClick={this.clickAdd} src={this.props.imageUrl} />
-                <Card.Title>{this.props.title} {this.state.clickNumber}</Card.Title>
-                <Card.Text>
-
-                  <p>{this.props.description}
-                    🐱‍🐉🐱‍🚀 </p></Card.Text>
-              </Card.Body>
-            </Card></Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
+      
       </>
     )
 
